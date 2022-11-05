@@ -2,7 +2,6 @@ import { getRedirectResult } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import {
   auth,
-  createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
@@ -10,7 +9,6 @@ import {
 } from "../../uitls/firebase/firebase.utils";
 import Button from "../button/button";
 import FormInput from "../form-input/form-input";
-
 import "./sign-in-form.scss";
 
 const defaultFormFields = {
@@ -33,9 +31,7 @@ const SignInForm = () => {
   );
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-
-    const userDocref = await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const resetForm = () => {

@@ -32,6 +32,7 @@ const SignUpForm = () => {
         email,
         password
       );
+
       const userDocref = await createUserDocumentFromAuth(user, {
         displayName,
       });
